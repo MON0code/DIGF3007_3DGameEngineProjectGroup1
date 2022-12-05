@@ -43,6 +43,8 @@ public class src_BasicPlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
+
+
     }
 
     //makes sure player is back on ground
