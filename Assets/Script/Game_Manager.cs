@@ -13,6 +13,8 @@ public class Game_Manager : MonoBehaviour
     public GameObject start_screen;
 
 
+    // Game Manager that record the stage of the game 
+    // in case if player go back to the frist room
 
     private void Awake()
     {

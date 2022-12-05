@@ -566,6 +566,7 @@ MonoBehaviour:
   rotationSpeed: 500
   jumpForce: 0
   isOnGround: 1
+  Chair: {fileID: 709812910}
 --- !u!65 &709812912
 BoxCollider:
   m_ObjectHideFlags: 0

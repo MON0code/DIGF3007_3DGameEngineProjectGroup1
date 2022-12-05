@@ -9,6 +9,7 @@ public class Dialog_Manager : MonoBehaviour
     // define gameobjects to manipulate
 
     public GameObject Chair;
+    public Transform chair;
 
     public GameObject begin_bubble; // begin dialog bubble
 
@@ -19,6 +20,24 @@ public class Dialog_Manager : MonoBehaviour
 
     public GameObject Basin;
     public GameObject Basin_bubble;
+
+    private Game_Manager _manager;
+    private bool GameStarted;
+
+    private void Awake()
+    {
+        _manager = GameObject.FindObjectOfType<Game_Manager>();
+        GameStarted = _manager.gameStart;
+
+    }
+
+    private void Update()
+    {
+        if(GameStarted == true)
+        {
+            begin_bubble.SetActive(false);
+        }
+    }
 
 
     private void OnCollisionEnter(Collision collision)

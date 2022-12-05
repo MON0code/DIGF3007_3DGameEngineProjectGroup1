@@ -14,6 +14,7 @@ public class src_BasicPlayerController : MonoBehaviour
     private float horizontalInput; //x axis (upArrow goes +X, downArrow goes -X)
     private float forwardInput; //z axis (rightArrow goes -Z, leftArrow goes +Z)
 
+    public GameObject Chair;
 
     public static bool isStarted; //whether player entered the game page
     private Game_Manager _manager;
@@ -23,6 +24,17 @@ public class src_BasicPlayerController : MonoBehaviour
     {
         _manager = GameObject.FindObjectOfType<Game_Manager>();
         GameStarted = _manager.gameStart;
+
+        // get the current scene name
+        var currentScene = SceneManager.GetActiveScene();
+        var currentSceneName = currentScene.name;
+
+        // if game started, but this scene reload, which means the player goes back to Bathroom
+        // the player will move to the door position
+        if (GameStarted == true && currentSceneName == "Bathroom")
+        {
+            Chair.transform.position = new Vector3(1.75f, 0.17f, 1.66f);
+        }
     }
 
     // Start is called before the first frame update
@@ -36,8 +48,8 @@ public class src_BasicPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameStarted == true)
-        {
+        if(GameStarted == true) // variable that don't destroy on load
+        {                       
             isStarted = true;
         }
 
