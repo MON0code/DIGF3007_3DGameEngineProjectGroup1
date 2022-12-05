@@ -15,7 +15,7 @@ public class Camera_move : MonoBehaviour
 
         float camera_x = chair.transform.position.x + 5.5f;
         float camera_y = chair.transform.position.y + 3.5f;
-        float camera_z = chair.transform.position.y + -2.5f;
+        float camera_z = chair.transform.position.z + -2.5f;
 
         // transform the camera into the new position
 

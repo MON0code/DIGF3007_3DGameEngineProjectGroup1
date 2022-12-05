@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Game_Manager : MonoBehaviour
 {
-    private static bool isStarted = false;
 
-    //Accessible only trough editor or from this class
+    // Accessible only through editor or from this class
     [SerializeField]
     public bool gameStart = false;
     public GameObject start_screen;
 
+    // public GameObject currentRoom;
+
 
     // Game Manager that record the stage of the game 
-    // in case if player go back to the frist room
+    // in case if player go back to the first room
 
     private void Awake()
     {
-        if (!isStarted)
-        {
-            DontDestroyOnLoad(this.gameObject);
-        }
+        DontDestroyOnLoad(this.gameObject);
+
+
     }
+    
     private void Update()
     {
 
@@ -31,8 +31,6 @@ public class Game_Manager : MonoBehaviour
             gameStart = true;
 
         }
-
-
 
     }
 
