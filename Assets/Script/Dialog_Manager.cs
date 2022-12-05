@@ -33,6 +33,18 @@ public class Dialog_Manager : MonoBehaviour
     public GameObject Plant1;
     public GameObject Plant1_bubble;
 
+    public GameObject Plant2;
+    public GameObject Plant2_bubble;
+
+    public GameObject Sofa;
+    public GameObject Sofa_bubble;
+
+    public GameObject Stair;
+    public GameObject Stair_bubble;
+
+    public GameObject Window;
+    public GameObject Window_bubble;
+
     private Game_Manager _manager;
     private bool GameStarted;
 
@@ -94,6 +106,37 @@ public class Dialog_Manager : MonoBehaviour
             OfficeChair_bubble.SetActive(false);
 
             Plant1_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Plant2)
+        {
+            begin_bubble.SetActive(false);
+            Sofa_bubble.SetActive(false);
+
+            Plant2_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Sofa)
+        {
+            begin_bubble.SetActive(false);
+            Plant2_bubble.SetActive(false);
+
+            Sofa_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Window)
+        {
+            begin_bubble.SetActive(false);
+
+            Window_bubble.SetActive(true);
+        }
+
+        else if (collision.gameObject == Stair)
+        {
+            begin_bubble.SetActive(false);
+
+            Window_bubble.SetActive(false);
+            Plant2_bubble.SetActive(false);
+            Sofa_bubble.SetActive(false);
+
+            Stair_bubble.SetActive(true);
         }
 
 
