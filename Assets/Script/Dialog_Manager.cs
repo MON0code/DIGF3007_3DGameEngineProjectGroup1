@@ -21,6 +21,18 @@ public class Dialog_Manager : MonoBehaviour
     public GameObject Basin;
     public GameObject Basin_bubble;
 
+    public GameObject Bed;
+    public GameObject Bed_bubble;
+
+    public GameObject Shelf;
+    public GameObject Shelf_bubble;
+
+    public GameObject OfficeChair;
+    public GameObject OfficeChair_bubble;
+
+    public GameObject Plant1;
+    public GameObject Plant1_bubble;
+
     private Game_Manager _manager;
     private bool GameStarted;
 
@@ -52,8 +64,36 @@ public class Dialog_Manager : MonoBehaviour
         }else if(collision.gameObject == Basin)
         {
             begin_bubble.SetActive(false);
+            Toilet_bubble.SetActive(false);
 
             Basin_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Bed)
+        {
+            begin_bubble.SetActive(false);
+
+            Bed_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == OfficeChair)
+        {
+            begin_bubble.SetActive(false);
+            Bed_bubble.SetActive(false);
+
+            OfficeChair_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Shelf)
+        {
+            begin_bubble.SetActive(false);
+            Bed_bubble.SetActive(false);
+
+            Shelf_bubble.SetActive(true);
+        }
+        else if (collision.gameObject == Plant1)
+        {
+            begin_bubble.SetActive(false);
+            OfficeChair_bubble.SetActive(false);
+
+            Plant1_bubble.SetActive(true);
         }
 
 
@@ -63,6 +103,13 @@ public class Dialog_Manager : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
+        setAllFalse();
+
+
+    }
+
+    void setAllFalse()
+    {
         All_bubbles.SetActive(false);
 
         for (int i = 0; i < All_bubbles.transform.childCount; i++)
@@ -70,8 +117,6 @@ public class Dialog_Manager : MonoBehaviour
             var child = All_bubbles.transform.GetChild(i).gameObject;
             child.SetActive(false);
         }
-
-
     }
 
 
