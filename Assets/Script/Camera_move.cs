@@ -14,7 +14,7 @@ public class Camera_move : MonoBehaviour
         // values are designed to be a comfortable angle
 
         float camera_x = chair.transform.position.x + 5.5f;
-        float camera_y = chair.transform.position.y + 3.5f;
+        float camera_y = chair.transform.position.y + 6.5f;
         float camera_z = chair.transform.position.z + -2.5f;
 
         // transform the camera into the new position
