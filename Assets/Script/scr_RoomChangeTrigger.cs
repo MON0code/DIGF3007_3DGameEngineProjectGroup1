@@ -24,4 +24,5 @@ public class scr_RoomChangeTrigger : MonoBehaviour
 
         }
     }
+
 }

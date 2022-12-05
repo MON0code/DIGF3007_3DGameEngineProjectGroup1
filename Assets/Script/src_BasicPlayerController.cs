@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class src_BasicPlayerController : MonoBehaviour
 {
@@ -15,28 +16,45 @@ public class src_BasicPlayerController : MonoBehaviour
 
 
     public static bool isStarted; //whether player entered the game page
+    private Game_Manager _manager;
+    private bool GameStarted;
 
+    private void Awake()
+    {
+        _manager = GameObject.FindObjectOfType<Game_Manager>();
+        GameStarted = _manager.gameStart;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
 
-        isStarted = false;
+        isStarted = false;   // set game start as false
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(isStarted == false)
+        if(GameStarted == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            isStarted = true;
+        }
+
+        // if the game is not started yet
+        if(isStarted == false)  
+        {
+            // get the current scene name
+            var currentScene = SceneManager.GetActiveScene();
+            var currentSceneName = currentScene.name;
+                
+            // if SPACE is pressed, OR, the active current scene isn't bathroom
+            if (Input.GetKeyDown(KeyCode.Space) || currentScene.name != "Bathroom")
             {
-                isStarted = true;
+                isStarted = true;   // the game state is started
             }
         }
-        else if(isStarted == true)
+        else if(isStarted == true)   // else if game started, run normally
         {
             //get player Input
             horizontalInput = Input.GetAxis("Horizontal");

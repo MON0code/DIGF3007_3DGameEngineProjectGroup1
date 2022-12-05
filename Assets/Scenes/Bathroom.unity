@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: 
+  start_screen: {fileID: 829886771}
 --- !u!64 &815124743
 MeshCollider:
   m_ObjectHideFlags: 0
